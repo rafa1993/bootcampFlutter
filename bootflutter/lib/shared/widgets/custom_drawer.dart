@@ -1,10 +1,8 @@
+import 'package:bootflutter/pages/cep_page.dart';
 import 'package:flutter/material.dart';
-import 'package:bootflutter/pages/main_page.dart';
-import 'package:bootflutter/pages/consulta_cep.dart';
-import 'package:bootflutter/repositories/back4app/cep_back4app_repository.dart';
 
-class CustonDrawer extends StatelessWidget {
-  const CustonDrawer({Key? key}) : super(key: key);
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -129,8 +127,8 @@ class CustonDrawer extends StatelessWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
                 width: double.infinity,
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.exit_to_app),
                     SizedBox(
                       width: 5,
@@ -151,27 +149,12 @@ class CustonDrawer extends StatelessWidget {
                         "Meu App",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      content: Wrap(
-                        children: const [
+                      content: const Wrap(
+                        children: [
                           Text("Voce sairá do aplicativo!"),
                           Text("Deseja realmente sair do aplicativo?"),
                         ],
                       ),
-                      actions: [
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            child: const Text("Não")),
-                        TextButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => const LoginPage()));
-                            },
-                            child: const Text("Sim"))
-                      ],
                     );
                   });
             },
