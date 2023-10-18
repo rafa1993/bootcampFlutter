@@ -39,6 +39,9 @@ dependencies:
   path_provider: ^2.0.11
   sqflite: ^2.3.0
   http: ^1.1.0
+  animated_text_kit: ^4.2.2
+  image_picker: ^1.0.4
+  gallery_saver: ^2.3.2
 
 dev_dependencies:
   flutter_test:

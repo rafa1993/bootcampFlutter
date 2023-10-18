@@ -1,5 +1,7 @@
-import 'package:bootflutter/pages/cep_page.dart';
+import 'package:bootflutter/pages/camera_page.dart';
 import 'package:flutter/material.dart';
+import '../../pages/cep_http_page.dart';
+import '../../pages/dados_cadastrais_http_page.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({Key? key}) : super(key: key);
@@ -25,9 +27,10 @@ class CustomDrawer extends StatelessWidget {
                           title: const Text("Camera"),
                           leading: const Icon(Icons.camera_alt),
                         ),
-                        ListTile(
-                          onTap: () {
-                            Navigator.pop(context);
+                        ListTile(                
+                          onTap: () async {
+                            Navigator.push(context,
+                              MaterialPageRoute(builder: (_) => const CameraPage()));
                           },
                           title: const Text("Galeria"),
                           leading: const Icon(Icons.insert_photo),
@@ -109,13 +112,37 @@ class CustomDrawer extends StatelessWidget {
                     SizedBox(
                       width: 5,
                     ),
+                    Text("Dados Cadastrais"),
+                  ],
+                )),
+            onTap: () {
+              Navigator.pop(context);
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (bc) => const DadosCadastraisHttpPage()));
+            },
+          ),
+          const Divider(),
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            child: Container(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+                width: double.infinity,
+                child: const Row(
+                  children: [
+                    Icon(Icons.place),
+                    SizedBox(
+                      width: 5,
+                    ),
                     Text("Lista de CEP"),
                   ],
                 )),
             onTap: () {
               Navigator.pop(context);
               Navigator.push(context,
-                  MaterialPageRoute(builder: (bc) => const CepPage()));
+                  MaterialPageRoute(builder: (bc) => const CepHttpPage()));
             },
           ),
           const Divider(),
